@@ -6,13 +6,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
-        if (a >= 1 && a <= 100) {
-            for (int i = 1; i <= a; i++) {
+        for (int i = 1; i <= a; i++) {
+            if (i != 1) {
                 System.out.println();
-                for (int j = 1; j <= i; j++) {
-                    System.out.print("*");
-
-                }
+            }
+            for (int j = a - i; j >= 1; j--) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
             }
         }
     }
