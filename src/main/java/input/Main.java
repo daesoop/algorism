@@ -10,6 +10,9 @@ public class Main {
             if (i != a) {
                 System.out.println();
             }
+            for (int j = a - i; j >= 1; j--) {
+                System.out.print(" ");
+            }
             for (int j = 1; j <= i; j++) {
                 System.out.print("*");
             }
