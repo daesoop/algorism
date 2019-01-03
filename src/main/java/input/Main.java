@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        int sum = 0;
-        for (int i = 1; i <= a; i++) {
-            sum = sum + i;
+        int A = scanner.nextInt();
+        if (A <= 100000) {
+            for (int i = A; i >= 1; i--) {
+                System.out.println(i);
+            }
         }
-        System.out.print(sum);
     }
 }
