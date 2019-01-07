@@ -6,16 +6,32 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
-        if (a <= 100 && a >= 90) {
-            System.out.println("A");
-        } else if (a <= 89 && a >= 80) {
-            System.out.println("B");
-        } else if (a <= 79 && a >= 70) {
-            System.out.println("C");
-        } else if (a <= 69 && a >= 60) {
-            System.out.println("D");
-        } else {
-            System.out.println("F");
+        String b = scanner.next();
+        String[] str = b.split(",");
+        int max = 0;
+        int[] value = new int[a];
+        int values = 0;
+        int[] num = new int[a];
+        int average = 0;
+        if(a != str.length) {
+            return;
         }
+        for (int i = 0; i < 3; i++) {
+            num[i] = Integer.parseInt(str[i]);
+        }
+        for (int i = 0; i < a; i++) {
+            if (max < num[i]) {
+                max = num[i];
+            }
+        }
+        for (int i = 0; i < a; i++) {
+            values += num[i] / max * 100;
+        }
+        System.out.println(num[0] / max * 100);
+        System.out.println(num[1] / max * 100);
+        System.out.println(num[2] / max * 100);
+        System.out.println(max);
+        System.out.println(values);
+        System.out.println(values / a);
     }
 }
