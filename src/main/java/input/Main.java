@@ -8,21 +8,32 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
         int n = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            String[] str = sc.nextLine().split("");
-            int count = 0;
-            int sum = 0;
-            for (int j = 0; j < str.length; j++) {
-                if (str[j].equals("O")) {
-                    count++;
-                    sum = sum + count;
-                } else {
-                    count = 0;
+        List<String> result = new ArrayList<>();
+        for (int i = 1; i < 10; i++) {
+            if (i % 2 == 0) {
+                for (int j = i; j >= 1; j--) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append((i - j + 1));
+                    sb.append("/");
+                    sb.append(j);
+
+                    result.add(sb.toString());
+                }
+            } else {
+
+                for (int j = i; j >= 1; j--) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(j);
+                    sb.append("/");
+                    sb.append((i - j + 1));
+
+                    result.add(sb.toString());
                 }
             }
-            System.out.println(sum);
+
         }
+        sc.close();
+        System.out.println(result.get(n - 1));
     }
 }
