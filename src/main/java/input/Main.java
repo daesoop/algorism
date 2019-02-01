@@ -1,39 +1,23 @@
 package input;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = Integer.parseInt(scanner.nextLine());
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        List<String> result = new ArrayList<>();
-        for (int i = 1; i < 10; i++) {
-            if (i % 2 == 0) {
-                for (int j = i; j >= 1; j--) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append((i - j + 1));
-                    sb.append("/");
-                    sb.append(j);
-
-                    result.add(sb.toString());
-                }
-            } else {
-
-                for (int j = i; j >= 1; j--) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(j);
-                    sb.append("/");
-                    sb.append((i - j + 1));
-
-                    result.add(sb.toString());
+        for (int i = 0; i < num; i++) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String[] str = scanner.nextLine().split(" ");
+            int strNum = Integer.parseInt(str[0]);
+            String[] strings = str[1].split("");
+            for (int k = 0; k < str[1].length(); k++) {
+                for (int j = 0; j < strNum; j++) {
+                    stringBuilder.append(strings[k]);
                 }
             }
-
+            System.out.println(stringBuilder.toString());
         }
-        sc.close();
-        System.out.println(result.get(n - 1));
     }
 }
