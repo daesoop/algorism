@@ -1,23 +1,29 @@
 package input;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int num = Integer.parseInt(scanner.nextLine());
 
-        for (int i = 0; i < num; i++) {
-            StringBuilder stringBuilder = new StringBuilder();
-            String[] str = scanner.nextLine().split(" ");
-            int strNum = Integer.parseInt(str[0]);
-            String[] strings = str[1].split("");
-            for (int k = 0; k < str[1].length(); k++) {
-                for (int j = 0; j < strNum; j++) {
-                    stringBuilder.append(strings[k]);
-                }
+    public static void main(String args[]) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+        int sosuCnt = 0, cnt = 0;
+
+        for (int i = 1; i <= num; i++) {
+            int num2 = sc.nextInt();
+            sosuCnt = 0;
+
+            for (int j = 1; j <= num2; j++) {
+                if (num2 % j == 0)
+                    sosuCnt++;
             }
-            System.out.println(stringBuilder.toString());
+
+            if (sosuCnt == 2)
+                cnt++;
         }
+        System.out.print(cnt);
     }
 }
