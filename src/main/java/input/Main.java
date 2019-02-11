@@ -1,29 +1,27 @@
 package input;
 
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String args[]) throws IOException {
-
         Scanner sc = new Scanner(System.in);
 
-        int num = sc.nextInt();
-        int sosuCnt = 0, cnt = 0;
+        int a = sc.nextInt();
+        int b = sc.nextInt();
 
-        for (int i = 1; i <= num; i++) {
-            int num2 = sc.nextInt();
-            sosuCnt = 0;
+        int result1, result2;
 
-            for (int j = 1; j <= num2; j++) {
-                if (num2 % j == 0)
-                    sosuCnt++;
-            }
+        result1 = ((a%10) * 100) + ((a%100)/10 * 10) + a/100;
+        result2 = ((b%10) * 100) + ((b%100)/10 * 10) + b/100;
 
-            if (sosuCnt == 2)
-                cnt++;
+        if(result1>result2) {
+            System.out.println(result1);
+        }else {
+            System.out.println(result2);
         }
-        System.out.print(cnt);
     }
 }
