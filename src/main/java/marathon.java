@@ -1,22 +1,27 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class marathon {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        String[] participant = {"leo","kiki","eden"};
-        String[] completion = {"eden","kiki"};
+        String[] participant = {"mislav", "mislav", "stanko", "ana" };
+        String[] completion = {"mislav", "stanko", "ana"};
         System.out.println(solution.solution(participant, completion));
     }
 }
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        String answer = "";
-        for (int i = 0; i < participant.length; i++) {
-            for (int j = 0; j < completion.length; j++) {
-                if (participant[i].equals(completion[j])) {
-                    completion[j] = null;
-                }
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+        int i;
+        for (i = 0; i < completion.length; i++) {
+
+            if (!participant[i].equals(completion[i])) {
+                return participant[i];
             }
         }
-        return answer;
+        return participant[i];
     }
 }
