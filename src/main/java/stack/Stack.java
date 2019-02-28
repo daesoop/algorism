@@ -28,11 +28,9 @@ public class Stack {
                 bw.newLine();
             }
         }
-
         bw.flush();
         bw.close();
         br.close();
-
     }
 }
 
