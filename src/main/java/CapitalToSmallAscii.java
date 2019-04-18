@@ -7,8 +7,8 @@ public class CapitalToSmallAscii {
 
         for (int i = 0; i < alphabet.length; i++) {
             for (int j = 0; j < alphabet[i].length; j++) {
-                num = (int) ch1;
-                alphabet[i][j] = (char) num;
+                num = (int) ch1 - 32;
+                alphabet[i][j] = (char) num ;
                 System.out.print(alphabet[i][j] + ",");
                 ch1++;
             }

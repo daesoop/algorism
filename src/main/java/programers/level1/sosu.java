@@ -1,3 +1,5 @@
+package programers.level1;
+
 import java.util.Scanner;
 
 public class sosu {

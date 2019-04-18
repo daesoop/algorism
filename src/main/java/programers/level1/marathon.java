@@ -1,6 +1,6 @@
+package programers.level1;
+
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class marathon {
     public static void main(String[] args) {

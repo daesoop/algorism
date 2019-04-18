@@ -1,3 +1,5 @@
+package programers.level1;
+
 public class sumDivisor {
     public static void main(String[] args) {
         int num = 5;

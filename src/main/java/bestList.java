@@ -2,12 +2,12 @@
 //    public static void main(String[] args) {
 //        int a = 2;
 //        int b = 9;
-//        Solution solution = new Solution();
+//        programers.Solution solution = new programers.Solution();
 //        System.out.println(solution.solution(a,b));
 //    }
 //}
 //
-//class Solution {
+//class programers.Solution {
 //    public int[] solution(int a, int b) {
 //        int[] arr = new int[a];
 //        int[] big = new int[a];

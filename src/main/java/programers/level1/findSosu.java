@@ -1,3 +1,5 @@
+package programers.level1;
+
 public class findSosu {
     public static void main(String[] args) {
         int i = 5;

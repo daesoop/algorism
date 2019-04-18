@@ -1,3 +1,5 @@
+package programers.level1;
+
 import java.util.Arrays;
 
 public class K {
@@ -10,7 +12,7 @@ public class K {
 
     @Override
     public String toString() {
-        return "K{}";
+        return "programers.level1.K{}";
     }
 }
 
