@@ -8,7 +8,9 @@ public class K {
         int[] arr = {1, 5, 2, 6, 3, 7, 4};
         int[][] command = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
         Solution4 solution = new Solution4();
-        System.out.println(solution.solution(arr, command));
+        kFail fail = new kFail();
+        System.out.println(fail.solution(arr, command));
+//        System.out.println(solution.solution(arr, command));
     }
 
     @Override
@@ -44,17 +46,18 @@ class kFail{
 
     public int[] solution(int[] arr, int[][] command) {
         int[] answer = new int[command.length];
-        int temp_length = 0;
-        int answer_length = 0;
         for (int i = 0; i < command.length; i++) {
-            int[] tmp = new int[command[i][1] - command[i][0] + 1];
-            for (int j = command[i][0]; j < command[i][1]; j++) {
-                tmp[i] = command[i][j];
-                temp_length++;
-            }
+            int start = command[i][0];
+            int end = command[i][1];
+            int k = command[i][2];
+
+            int[] tmp = Arrays.copyOfRange(arr, start, end);
+
             Arrays.sort(tmp);
-            answer[answer_length] = tmp[command[i][2]];
-            answer_length++;
+            answer[i] = tmp[k - 1];
+        }
+        for (int i = 0; i < answer.length; i++) {
+            System.out.println(answer[i]);
         }
         return answer;
     }
