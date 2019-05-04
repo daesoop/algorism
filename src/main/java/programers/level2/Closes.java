@@ -1,5 +1,8 @@
 package programers.level2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Closes {
     public static void main(String[] args) {
         Solution13 solution = new Solution13();
@@ -17,14 +20,20 @@ class Solution13 {
         for (int i = 0; i < lost.length; i++) {
             boolean bo = false;
             for (int j = 0; j < reverse.length; j++) {
-                if (reverse[j] - lost[i] == 1) {
-                    lost[i] = -1;
-                    reverse[j] = -1;
-                    bo = true;
-                } else if (lost[i] - reverse[j] == 1) {
-                    lost[i] = -1;
-                    reverse[j] = - 1;
-                    bo = true;
+                if (lost[i] != -1) {
+                    if (reverse[j] - lost[i] == 1) {
+                        lost[i] = -1;
+                        reverse[j] = -1;
+                        bo = true;
+                    } else if (lost[i] - reverse[j] == 1) {
+                        lost[i] = -1;
+                        reverse[j] = -1;
+                        bo = true;
+                    } else if (reverse[j] == lost[i]) {
+                        bo = true;
+                        lost[i] = -1;
+                        reverse[j] = -1;
+                    }
                 }
             }
             if (!bo) {
