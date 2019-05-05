@@ -17,11 +17,9 @@ class Solution12 {
         if (number.charAt(0) == '0') return "0";
         for (int i = 0; i < number.length() - k; i++) {
             max = '0';
-            System.out.println("i : " + i);
-            for (int j = idx; j <= k + i; j++) {
+            for (int j = idx; j <= k + i ; j++) {
                 if (max < number.charAt(j)) {
                     max = number.charAt(j);
-                    System.out.println("max : " + max);
                     idx = j + 1;
                 }
             }
