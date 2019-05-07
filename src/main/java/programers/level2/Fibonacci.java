@@ -12,23 +12,12 @@ public class Fibonacci {
 }
 
 class Solution14 {
-    public int solution(int num) {
-        int answer = 0;
-        List<Integer> list = new ArrayList<>();
-        list.add(0);
-        list.add(1);
-        if (num >= 2) {
-            for (int i = 2; i <= num; i++) {
-                list.add(list.get(i - 1) + list.get(i - 2));
-            }
-        }
-        System.out.println("list : " + list.get(num));
-        if (list.get(num) < 1234567) {
-            System.out.println("working");
-            answer = list.get(num) % 1234567;
-        } else if (list.get(num) > 1234567) {
-            System.out.println("asdf");
-            answer = 1234567 % list.get(num);
+    public long solution(int num) {
+        long answer = 0;
+        if (num < 2) {
+            answer = num;
+        } else {
+            answer = solution(num - 1) + solution(num - 2);
         }
         return answer;
     }
