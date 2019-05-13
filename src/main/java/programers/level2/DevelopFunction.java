@@ -1,12 +1,14 @@
 package programers.level2;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class DevelopFunction {
     public static void main(String[] args) {
-        int[] progress = {93, 30, 55};
-        int[] speeds = {1, 30, 5};
+        int[] progress = {93, 30, 55, 60, 40, 65};
+        int[] speeds = {1, 30, 5 , 10, 60, 7};
         Solution10 solution = new Solution10();
         solution.solution(progress, speeds);
     }
@@ -14,47 +16,38 @@ public class DevelopFunction {
 
 class Solution10 {
     public int[] solution(int[] progress, int[] speeds) {
-        List<Integer> answer = new ArrayList<>();
-        int max = 0;
-        int cnt = 0;
-        int length = 0;
-        List<Integer> list = new ArrayList<>();
+        Queue<Integer> days = new LinkedList<>();
+        List<Integer> ans = new ArrayList<>();
         for (int i = 0; i < progress.length; i++) {
-            int num = progress[i];
-            int time = 0;
-            while (num < 100) {
-                num += speeds[i];
-                time++;
+            int count = 0;
+
+            while (progress[i] < 100) {
+                progress[i] += speeds[i];
+                count++;
             }
-            list.add(time);
+            days.add(count);
         }
 
-        max = list.get(0);
-        cnt++;
-        for (int i = 1; i < list.size(); i++) {
-            System.out.println("i : " + i);
-            if (list.get(i) > max && i == list.size() - 1) {
-                answer.add(cnt);
-                length++;
-                max = list.get(i);
-                answer.add(1);
-
-            } else if (list.get(i) <= max) {
-                cnt++;
-            } else if (list.get(i) <= max && i == list.size()) {
-                cnt++;
-                answer.add(cnt);
-            } else if (list.get(i) > max &&  i < list.size() - 1) {
-                answer.add(cnt);
-                length++;
-                max = list.get(i);
-                cnt = 1;
+        int max = days.poll();
+        int count = 1;
+        while (!days.isEmpty()) {
+            if (max < days.peek()) {
+                max = days.peek();
+                ans.add(count);
+                count = 1;
+                days.poll();
+            } else if (max >= days.peek()) {
+                count++;
+                days.poll();
+            }
+            if (days.isEmpty()) {
+                ans.add(count);
             }
         }
-        int[] answer1 = new int[answer.size()];
-        for (int i = 0; i < answer.size(); i++) {
-            answer1[i] = answer.get(i);
+        int[] answer = new int[ans.size()];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = ans.get(i);
         }
-        return answer1;
+        return answer;
     }
 }
