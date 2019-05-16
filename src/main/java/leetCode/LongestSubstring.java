@@ -6,7 +6,7 @@ import java.util.List;
 public class LongestSubstring {
     public static void main(String[] args) {
         Solution2 solution = new Solution2();
-        String s = "abcabcbb";
+        String s = "III";
         solution.solution(s);
     }
 }

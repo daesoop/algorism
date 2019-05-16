@@ -1,36 +1,36 @@
 package leetCode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RomanToInteger {
     public static void main(String[] args) {
         Solution5 solution = new Solution5();
-        String s = "IV";
+        String s = "MCMXCIV";
         System.out.println(solution.solution(s));
     }
 }
 class Solution5{
 
     public int solution(String s) {
-        String[] strings = s.split("");
         int answer = 0;
-
-        for (int i = 0; i < strings.length; i++) {
-            if (strings[i].equals("I")) {
-                System.out.println("I");
-                answer += 1;
-            } else if (strings[i].equals("V")) {
-                System.out.println("V");
-                answer += 5;
-            } else if (strings[i].equals("X")) {
-                answer += 10;
-            } else if (strings[i].equals("L")) {
-                answer += 50;
-            } else if (strings[i].equals("C")) {
-                answer += 100;
-            } else if (strings[i].equals("D")) {
-                answer += 500;
-            } else if (strings[i].equals("M")) {
-                answer += 1000;
+        int preNum = 0;
+        Map<String, Integer> map = new HashMap<>();
+        map.put("I" , 1);
+        map.put("V" , 5);
+        map.put("X" , 10);
+        map.put("L" , 50);
+        map.put("C" , 100);
+        map.put("D" , 500);
+        map.put("M" , 1000);
+        String[] strings = s.split("");
+        for (int i = 0; i < s.length(); i++) {
+            if (map.get(strings[i]) > preNum) {
+                answer += map.get(strings[i]) - (preNum * 2);
+            } else {
+                answer += map.get(strings[i]);
             }
+            preNum = map.get(strings[i]);
         }
         return answer;
     }
