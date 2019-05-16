@@ -3,7 +3,7 @@ package leetCode;
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         Solution4 solution = new Solution4();
-        String[] strings = {"dog","racecar","car"};
+        String[] strings = {"flower","flow","flight"};
         System.out.println(solution.solution(strings));
     }
 }
