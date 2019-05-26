@@ -7,7 +7,7 @@ public class SortColors {
 
     public static void main(String[] args) {
         Solution10 solution = new Solution10();
-        int[] nums = {2,0,2,1,1,0};
+        int[] nums = {2,0,2,3,1,0};
         solution.solution(nums);
     }
 }
