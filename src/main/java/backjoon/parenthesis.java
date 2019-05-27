@@ -10,10 +10,10 @@ public class parenthesis {
         Stack<String> stack = new Stack<>();
         for (int i = 0; i < num; i++) {
             String string = scanner.next();
+            int count = 0;
             for (int j = 0; j < string.length(); j++) {
                 String[] arr = string.split("");
                 stack.push(arr[j]);
-                int count = 0;
                 while (!stack.isEmpty()) {
                     if (stack.peek().equals("(")) {
                         count++;
@@ -23,11 +23,11 @@ public class parenthesis {
                         stack.pop();
                     }
                 }
-                if (count == 0) {
-                    System.out.println("NO");
-                } else if (count != 0) {
-                    System.out.println("YES");
-                }
+            }
+            if (count == 0) {
+                System.out.println("YES");
+            } else if (count != 0) {
+                System.out.println("NO");
             }
         }
     }
