@@ -1,6 +1,5 @@
 package input;
 
-import com.sun.xml.internal.fastinfoset.util.CharArray;
 
 import java.io.IOException;
 import java.util.Scanner;
