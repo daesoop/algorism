@@ -2,15 +2,24 @@ package programers.level2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class SaveBoat {
     public static void main(String[] args) {
-        int[] arr = {70, 50, 80};
-        int limit = 100;
+        int[] arr = {50,70, 50, 80};
+        int limit = 240;
         Solution22 solution = new Solution22();
         System.out.println(solution.solution(arr, limit));
     }
+}
+
+class Solution23 {
+
+    public int solution(int[] people, int limit) {
+        int answer = 0;
+
+        return answer;
+    }
+
 }
 
 class Solution22 {
@@ -42,6 +51,7 @@ class Solution22 {
                     if (sum + list.get(j) <= limit && !boat.contains(j)) {
                         boat.add(j);
                         sum += list.get(j);
+                        break;
                     }
                 }
             answer++;
