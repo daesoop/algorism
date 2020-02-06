@@ -1,35 +1,51 @@
 package leetCode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class LongestSubstring {
     public static void main(String[] args) {
         Solution2 solution = new Solution2();
-        String s = "III";
+        String s = "dvdf";
         solution.solution(s);
     }
 }
-class Solution2{
+
+class Solution2 {
     public int solution(String s) {
-        List<Integer> list = new ArrayList<>();
-        int answer = 1;
-        for (int i = 1; i < s.length(); i++) {
-            if (s.charAt(i) == s.charAt(i - 1)) {
-                list.add(answer);
-                System.out.println(i);
-                System.out.println(s.charAt(i));
-                answer = 1;
-            } else if (s.charAt(i) != s.charAt(i - 1)) {
-                answer++;
-            }
-            if (i == s.length() - 1) {
-                list.add(answer);
-            }
-        }
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
+        int answer = 0;
+        Queue<String> queue = split(s);
+        answer = beforeRepetition(s.length(), queue);
+        System.out.println("answer : " + answer);
         return answer;
+    }
+
+    private Queue<String> split(String string) {
+        Queue<String> strings = new LinkedList<>();
+        for (int i = 0; i < string.length(); i++) {
+            strings.add(String.valueOf(string.charAt(i)));
+        }
+        return strings;
+    }
+
+    private int beforeRepetition(int length, Queue<String> stack) {
+        Set<String> strings = new HashSet<>();
+        int max = 0;
+        for (int i = 0; i < length; i++) {
+            if (!strings.contains(stack.peek())) {
+                strings.add(stack.poll());
+            } else {
+                if (max < strings.size()) {
+                    max = strings.size();
+                }
+                strings = new HashSet<>();
+                strings.add(stack.poll());
+            }
+            if (i == length - 1) {
+                if (max < strings.size()) {
+                    max = strings.size();
+                }
+            }
+        }
+        return max;
     }
 }
