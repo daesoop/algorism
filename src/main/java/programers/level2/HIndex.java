@@ -10,7 +10,7 @@ import java.util.List;
 public class HIndex {
     public static void main(String[] args) {
         Solution16 solution = new Solution16();
-        int[] num = {1545, 1126, 323, 1, 2345,12,63};
+        int[] num = {1545, 1126, 323, 1, 2345, 12, 63};
         System.out.println(solution.solution(num));
     }
 }
@@ -25,16 +25,17 @@ class Solution16{
 
         for (int i = num.length - 1; i >= 0; i--) {
             for (int j = 0; j < num.length; j++) {
-                if (num[i] <= num[j]) {
-                    averageD++;
-                }
+//                if (num[i] <= num[j]) {
+//                    averageD++;
+//                }
                 if (num[i] >= num[j]) {
                     averageH++;
                 }
             }
-            if (averageD == num[i]) {
-                return averageD;
-            } else if (averageH == num[i]) {
+//            if (averageD == num[i]) {
+//                return averageD;
+//            } else
+            if (averageH == num[i]) {
                 return averageH;
             }
             averageD = 0;
