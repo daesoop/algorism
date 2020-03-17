@@ -18,11 +18,11 @@ public class Hanoi1914 {
     private void moveHanoi(String first, String center, String last, int num) {
         if (1 == num) {
             ++ answer;
-            System.out.println(num + " : " + first + " - > " + last);
+            System.out.println(num + " = " + first + " - > " + last);
         } else {
             moveHanoi(first, last, center, num - 1);
             ++ answer;
-            System.out.println(num + " : " + first + " - > " + last);
+            System.out.println(num + " = " + first + " - > " + last);
             moveHanoi(center, first, last, num - 1);
 
         }
