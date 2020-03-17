@@ -1,33 +1,35 @@
 package backjoon;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Treasure {
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
 
         Scanner sc = new Scanner(System.in);
-
+        int answer = 0;
         int n = sc.nextInt();
 
-        int[] A = new int[n];
-        int[] B = new int[n];
+        List<Integer> a = new ArrayList<>();
+        List<Integer> b = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            A[i] = sc.nextInt();
+            a.add(sc.nextInt());
         }
-        for (int i = 0; i < n; i++) {
-            B[i] = sc.nextInt();
 
-        }
-        Arrays.sort(A);
-        Arrays.sort(B);
-        int sum = 0;
         for (int i = 0; i < n; i++) {
-            sum += A[i] * B[n - 1 - i];
+            b.add(sc.nextInt());
         }
-        System.out.println(sum);
+
+        Collections.sort(a);
+        Collections.sort(b);
+        Collections.reverse(b);
+
+        for (int i = 0; i < n; i++) {
+            answer += a.get(i) * b.get(i);
+        }
+
+        System.out.println("answer : " + answer);
 
     }
 
