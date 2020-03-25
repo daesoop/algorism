@@ -17,8 +17,6 @@ class Solution15{
     static Set<Integer> combinationList = new HashSet<>();
     // 소수 판별하기 boolean
     public static boolean isPrimeNumber(int N){
-        // 소수는 2부터 시작한다.
-        //System.out.println(N);
         if(N <=1){
             return false;
         }
