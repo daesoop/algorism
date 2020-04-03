@@ -15,42 +15,48 @@ public class LetterPhoneNumber {
 
 class Solution15 {
     private Map<String, String> phone = new HashMap<String, String>() {{
-            put("2", "abc");
-            put("3", "def");
-            put("4", "ghi");
-            put("5", "jkl");
-            put("6", "mno");
-            put("7", "pqrs");
-            put("8", "tuv");
-            put("9", "wxyz");
-        }};
+        put("2", "abc");
+        put("3", "def");
+        put("4", "ghi");
+        put("5", "jkl");
+        put("6", "mno");
+        put("7", "pqrs");
+        put("8", "tuv");
+        put("9", "wxyz");
+    }};
 
+    String str = "";
 
-    List<String> output = new ArrayList<String>();
-    public void backtrack(String combination, String next_digits) {
-        // if there is no more digits to check
-        if (next_digits.length() == 0) {
-            // the combination is done
-            output.add(combination);
+    public List<String> letterCombinations(String s) {
+        List<String> list = new ArrayList<>();
+        String[] digits = s.split("");
+        int num = 0;
+        for (int i = 0; i < s.length(); i++) {
+            str += String.valueOf(phone.get(digits[i]).charAt(digits[i].length()));
         }
-        // if there are still digits to check
-        else {
-            // iterate over all letters which map
-            // the next available digit
-            String digit = next_digits.substring(0, 1);
-            String letters = phone.get(digit);
-            for (int i = 0; i < letters.length(); i++) {
-                String letter = phone.get(digit).substring(i, i + 1);
-                // append the current letter to the combination
-                // and proceed to the next digits
-                backtrack(combination + letter, next_digits.substring(1));
+        String check = "";
+
+        while (check.equals(str)) {
+
+            if (num == s.length()) {
+                addLast(list, digits[num]);
             }
+
         }
+
+        return list;
     }
 
-    public List<String> letterCombinations(String digits) {
-        if (digits.length() != 0)
-            backtrack("", digits);
-        return output;
+    private void addLast(List<String> list, String digit) {
+        for (int i = 0; i < digit.length(); i++) {
+            str += digit.charAt(i);
+            list.add(str);
+            str.substring(str.length() - 1);
+        }
+        str = "";
+    }
+
+    private String addStr() {
+        return "";
     }
 }
