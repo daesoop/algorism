@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LongestSubstring2 {
     public static void main(String[] args) {
-        Solution16 solution = new Solution16();
+        Solution11 solution = new Solution11();
         String s = "dvdf";
         System.out.println(solution.lengthOfLongestSubstring(s));
     }
