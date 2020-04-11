@@ -25,4 +25,8 @@ class Solution7{
 
         return answer.toString();
     }
+
+    private void parse() {
+
+    }
 }
